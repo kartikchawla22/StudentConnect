@@ -7,8 +7,8 @@ const CustomButton = (props) => {
     return (
         <TouchableOpacity
             onPress={props.onPress}
-            style={[styles.button, config.roundedButton ? styles.roundedButton : null]}
-        ><Text style={[styles.buttonText, config.roundedButton ? styles.smallFont : null]}>{config.buttonText}</Text>
+            style={styles.button}
+        ><Text style={styles.buttonText}>{config.buttonText}</Text>
         </TouchableOpacity>
     );
 }
@@ -20,23 +20,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
         width: "80%",
-        height: 60,
+        borderRadius: 100,
         alignItems: 'center',
         padding: 10,
-    },
-    roundedButton: {
-        borderRadius: 100,
-        height: 40,
-    },
-    smallFont: {
-        fontSize: 16
+        alignContent: "center",
     },
     buttonText: {
         color: CSS_CONSTANTS.COLOR_PRIMARY_TEXT,
-        textAlign: 'center',
-        alignItems: 'center',
         fontWeight: "bold",
-        fontSize: 32
+        fontSize: 15
     }
 });
 export default CustomButton;

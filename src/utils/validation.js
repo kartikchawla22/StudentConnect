@@ -1,4 +1,11 @@
 var constraints = {
+    name: {
+        presence: true,
+        format: {
+            pattern: /^[a-zA-Z]*$/,
+            message: "^Invalid Name"
+        }
+    },
     email: {
         presence: true,
         format: {
@@ -16,6 +23,15 @@ var constraints = {
     confirmPassword: {
         presence: true,
         equality: 'password'
+    },
+    course: {
+        presence: true
+    },
+    semester: {
+        presence: true
+    },
+    homeCountry: {
+        presence: true
     }
 };
 

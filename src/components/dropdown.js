@@ -1,25 +1,21 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { CSS_CONSTANTS } from '../utils/css-contants';
-import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
+import RNPickerSelect from 'react-native-picker-select';
 
 
-const DropdownComponent = (props) => {
+const Dropdown = (props) => {
     const { config, errorMessage } = props;
-    const actionSheet = React.useRef();
-    const showActionSheet = () => {
-        actionSheet.current.show()
-    }
     return (
         <View style={styles.container}>
             <View style={[styles.inputContainer, !!errorMessage ? styles.hasError : null]}>
-                <Text onPress={showActionSheet} style={styles.inputField}>{config.placeholder}</Text>
-                <ActionSheet
-                    ref={actionSheet}
+                <RNPickerSelect
+                    placeholder={config.placeholder}
+                    onValueChange={props.onValueChange}
                     style={styles.inputField}
-                    title={config.title}
-                    options={[...props.options, 'Cancel']}
-                    cancelButtonIndex={props.options?.length}
+                    items={
+                        props.options?.length > 0 ? props.options : []
+                    }
                 />
             </View>
             {!!errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
@@ -50,9 +46,18 @@ const styles = StyleSheet.create({
         borderColor: "#E8E8E8"
     },
     inputField: {
-        padding: 15,
-        fontSize: 15,
-        width: '100%',
+        inputIOS: {
+            fontSize: 15,
+            minWidth: "100%",
+            padding: 15,
+            textColor: "green"
+        },
+        inputAndroid: {
+            fontSize: 15,
+            minWidth: "100%",
+            padding: 15,
+            textColor: "green"
+        }
     },
     hasError: {
         borderColor: CSS_CONSTANTS.ERROR_COLOR
@@ -63,4 +68,4 @@ const styles = StyleSheet.create({
         marginLeft: 5
     }
 });
-export default DropdownComponent;
+export default Dropdown;
