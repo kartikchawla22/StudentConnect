@@ -1,4 +1,4 @@
-import validation from 'validate.js'
+import validation, { isArray } from 'validate.js'
 import constraints from './validation'
 
 export function validate(fieldName, value) {

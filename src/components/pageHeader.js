@@ -6,7 +6,7 @@ import { CSS_CONSTANTS } from '../utils/css-contants';
 
 const PageHeader = (props) => {
     const { config } = props;
-    renderLeftHandButton = () => {
+    const renderLeftHandButton = () => {
         if (config.closeButton) {
             return <IconAntDesign style={styles.icon}
                 name='close' onPress={() => !!props.redirectURL ? props.navigation.navigate(props.redirectURL) : props.navigation.goBack()} />

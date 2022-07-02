@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 import LoginPage from './src/screens/Loginpage';
+import SignupPage from './src/screens/SignupPage';
 const Stack = createNativeStackNavigator();
 const App: () => Node = () => {
 
@@ -22,6 +23,7 @@ const App: () => Node = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
           <Stack.Screen name="Login" component={LoginPage} />
+          <Stack.Screen name="SignUp" component={SignupPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
