@@ -23,8 +23,10 @@ const config = {
         closeButton: true
     },
     submitButton: {
-        buttonText: 'Submit',
-        roundedButton: true
+        buttonText: 'Submit'
+    },
+    enterCodeButton: {
+        buttonText: 'Enter Code'
     }
 }
 let formSubmitted = false;
@@ -33,8 +35,8 @@ const ForgotPassword = ({ navigation, route }) => {
     const isFocused = useIsFocused();
     const [email, onEmailChange] = React.useState(email);
     const [emailError, setEmailError] = React.useState(emailError);
-    const [resetCodeSent = false, setResetCodeSent] = React.useState(resetCodeSent);
-    
+    const [resetCodeSent, setResetCodeSent] = React.useState(resetCodeSent);
+
     const sendEmail = () => {
         formSubmitted = true;
         setEmailError(validate('email', email))
@@ -43,11 +45,12 @@ const ForgotPassword = ({ navigation, route }) => {
         }
         if (emailError) {
             setResetCodeSent(false);
+            return;
         }
-
+        setResetCodeSent(email === CONSTANTS.EMAIL)
     }
 
-  const refreshPage = () => {
+    const refreshPage = () => {
         formSubmitted = false;
         setResetCodeSent(false);
         onEmailChange(null);
@@ -70,33 +73,33 @@ const ForgotPassword = ({ navigation, route }) => {
         }
         if (formSubmitted) {
             setEmailError(validate('email', email))
-           
+
         }
-        
-            setResetCodeSent(false);
+
+        setResetCodeSent(false);
     }, [email]);
 
 
     return (
-            <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center' }}>
+        <SafeAreaView>
+            <View style={styles.header}>
+                <PageHeader config={config.header} navigation={navigation}></PageHeader>
+            </View>
+            <ScrollView>
                 <View style={styles.container}>
-                    <View style={styles.header}>
-                        <PageHeader config={config.header}></PageHeader>
-                    </View>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.textContainerLarge} >Forgot your password? </Text>
-                        <Text style={styles.textContainerSmall} >Don’t worry, just enter your email and we’ll send you a rest code. </Text>
-                        {resetCodeSent ? <Text style={styles.setResetCodeSent} >Email sent sucessfully!!</Text> : null}
-                    </View>
+                    <View>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.textContainerLarge} >Forgot your password? </Text>
+                            <Text style={styles.textContainerSmall} >Don’t worry, just enter your email and we’ll send you a rest code. </Text>
+                            {resetCodeSent ? <Text style={styles.setResetCodeSent} >Email sent sucessfully!!</Text> : null}
+                        </View>
                         <Input config={config.fields.email} onChangeText={onEmailChange} errorMessage={emailError}></Input>
-                    
+                    </View>
                     <View style={styles.buttonsContainer}><CustomButton onPress={sendEmail} config={config.submitButton}></CustomButton></View>
-                    <View style={styles.signinlinkContainer}><Text onPress={() => {
-                    Keyboard.dismiss();
-                    navigation.navigate('Login')
-                    }} style={styles.signinlink}>Login</Text></View>
+                    {resetCodeSent ? <View style={styles.buttonsContainer}><CustomButton onPress={() => navigation.navigate("ResetPassword")} config={config.enterCodeButton}></CustomButton></View> : null}
                 </View>
-            </SafeAreaView>
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 const styles = StyleSheet.create({
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     textContainer: {
-        width:'85%',
+        width: '85%',
         marginBottom: 30
     },
     signinlinkContainer: {

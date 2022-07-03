@@ -32,6 +32,13 @@ var constraints = {
     },
     homeCountry: {
         presence: true
+    },
+    code: {
+        presence: true,
+        format: {
+            pattern: /^[0-9]{4}$/,
+            message: "^Invalid Code"
+        }
     }
 };
 

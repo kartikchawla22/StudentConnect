@@ -20,10 +20,9 @@ const config = {
             type: "password",
             textContentType: "newPassword", //iOS
         },
-        oldPassword: {
-            placeholder: "Old Password",
-            type: "password",
-            textContentType: "newPassword", //iOS
+        code: {
+            placeholder: "Code",
+            type: "text"
         }
     },
     header: {
@@ -43,37 +42,36 @@ const ResetPassword = ({ navigation, route }) => {
     const [confirmPassword, onConfirmPasswordChange] = React.useState(confirmPassword);
     const [passwordError, setPasswordError] = React.useState(passwordError);
     const [confirmPasswordError, setConfirmPasswordError] = React.useState(confirmPasswordError);
-    const [oldPasswordError, setOldPasswordError] = React.useState(oldPasswordError);
-    const [oldPassword, onOldPasswordChange] = React.useState(oldPassword);
-    const [incorrectOldPassword = false, setIncorrectOldPassword] = React.useState(incorrectOldPassword);
+    const [codeError, setCodeError] = React.useState(codeError);
+    const [code, onCodeChange] = React.useState(code);
 
-    
+    const [incorrectCode = false, setIncorrectCode] = React.useState(incorrectCode);
+
+
     const checkValidation = () => {
         formSubmitted = true;
-        setOldPasswordError(validate('Password', oldPassword))
-        setPasswordError(validate('Password', password))
+        setCodeError(validate('code', code))
+        setPasswordError(validate('password', password))
         setConfirmPasswordError(validateConfirmPassword(['confirmPassword', 'password'], [confirmPassword, password]))
-        if ( !oldPasswordError && !passwordError && !confirmPasswordError) {
-            if ( oldPassword === CONSTANTS.PASSWORD) 
-            {
+        if (!codeError && !passwordError && !confirmPasswordError) {
+            if (code == CONSTANTS.CODE) {
                 Keyboard.dismiss();
                 navigation.navigate('Login');
-            } 
+            }
             else {
-                setIncorrectOldPassword(true);
+                setIncorrectCode(true);
             }
         }
     }
 
-  const refreshPage = () => {
+    const refreshPage = () => {
         formSubmitted = false;
-        setIncorrectOldPassword(false);
+        setIncorrectCode(false);
         onPasswordChange(null);
         setPasswordError(null);
-        onOldPasswordChange(null);
-        setOldPasswordError(null);
+        onCodeChange(null);
         onConfirmPasswordChange(null);
-        setConfirmPasswordError(null);
+        setCodeError(null);
     }
     React.useEffect(() => {
         if (isFocused) {
@@ -96,14 +94,14 @@ const ResetPassword = ({ navigation, route }) => {
     }, [password]);
 
     React.useEffect(() => {
-        if (oldPassword === "") {
-            onOldPasswordChange(null)
+        if (code === "") {
+            onCodeChange(null)
         }
         if (formSubmitted) {
-            setOldPasswordError(validate('password', oldPassword))
+            setCodeError(validate('code', code))
         }
-        setIncorrectOldPassword(false);
-    }, [oldPassword]);
+        setIncorrectCode(false);
+    }, [code]);
 
     React.useEffect(() => {
         if (confirmPassword === "") {
@@ -123,8 +121,8 @@ const ResetPassword = ({ navigation, route }) => {
                         <Image style={styles.logostyle} source={require('../Assets/images/logo.png')} />
                     </View>
                     <View >
-                        {incorrectOldPassword ? <Text style={styles.IncorrectOldPasswordError} >Incorrect old password</Text> : null}
-                        <Input config={config.fields.oldPassword} onChangeText={onOldPasswordChange} errorMessage={oldPasswordError}></Input>
+                        {incorrectCode ? <Text style={styles.IncorrectCodeError} >Incorrect Code</Text> : null}
+                        <Input config={config.fields.code} onChangeText={onCodeChange} errorMessage={codeError}></Input>
                         <Input config={config.fields.password} onChangeText={onPasswordChange} errorMessage={passwordError}></Input>
                         <Input config={config.fields.confirmPassword} onChangeText={onConfirmPasswordChange} errorMessage={confirmPasswordError}></Input>
                     </View>
@@ -157,7 +155,7 @@ const styles = StyleSheet.create({
         height: 60,
         resizeMode: 'contain'
     },
-    IncorrectOldPasswordError: {
+    IncorrectCodeError: {
         color: CSS_CONSTANTS.ERROR_COLOR,
         alignSelf: "center"
     }
