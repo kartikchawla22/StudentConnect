@@ -1,53 +1,43 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image,Button,TouchableOpacity,ScrollView } from 'react-native';
-import { CSS_CONSTANTS } from '../utils/css-contants';
+import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '../components/button';
-const checkValidation = () => {}
-const onPress = () => {};
- 
+
 const config = {
-    submitButton: {
-        buttonText: 'Edit',
-        roundedButton: true
+    editButton: {
+        buttonText: 'Edit'
     },
     logoutButton: {
-        buttonText:'Logout',
-        roundedButton:true
+        buttonText: 'Logout'
+    },
+    friendsButton: {
+        buttonText: "Friends"
     }
 }
+const CurrentUserPage = () => {
+    const onPress = () => { };
 
-
-
-
-const CurrentUserPage =()=>{
     return (
-        <ScrollView>
-        <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center' }}>
-            <View style={styles.container}>
-                
-               
+        <SafeAreaView>
+            <ScrollView>
+                <View style={styles.container}>
                     <View style={styles.logoContainer}>
-                        <Image style={styles.logostyle} source={require('../Assets/images/user.png')} />
+                        <Image style={styles.logostyle} source={require('../Assets/images/profile-pic.png')} />
                     </View>
-                <Text style={styles.usernametext}>Monica Gamage</Text>
-                <View style={styles.buttonsContainer}><CustomButton onPress={() => {}} config={config.submitButton}></CustomButton></View>
-                    
-                   <View><Text style={styles.details}>Cousre : MDEV </Text><Text style={styles.details}>Semester : Summer </Text>
-                <Text style={styles.details}>HomeCoutnry : India </Text></View>
-
-                <TouchableOpacity onPress={onPress} style={styles.button}>
-  <Text style={styles.messagebutton}>Message</Text>
-</TouchableOpacity>
-<TouchableOpacity onPress={onPress} style={styles.button}>
-  <Text style={styles.friendbutton}>Friends</Text>
-</TouchableOpacity>
-              
-                
-            </View>
-            
-<View style={styles.buttonsContainer}><CustomButton onPress={() => {}} config={config.logoutButton}></CustomButton></View>
-        </SafeAreaView></ScrollView>
+                    <Text style={styles.usernametext}>Monica Gamage</Text>
+                    <View style={[styles.buttonsContainer, styles.editButton]}><CustomButton onPress={() => { }} config={config.editButton}></CustomButton></View>
+                    <View style={styles.detailsContainer}>
+                        <Text style={styles.details}>Cousre : MDEV </Text>
+                        <Text style={styles.details}>Semester : Summer </Text>
+                        <Text style={styles.details}>Home Coutnry : India </Text>
+                        <Text style={styles.details}>Interests: cooking, singing, dancing </Text>
+                        <Text style={styles.details}>About Me: Some SAmple Text Goes Here Some SAmple Text Goes Here Some SAmple Text Goes Here</Text>
+                    </View>
+                </View>
+                <View style={styles.buttonsContainer}><CustomButton buttonTextStyles={[styles.friendsButtonText]} styles={[styles.friendsButton]} onPress={() => { }} config={config.friendsButton}></CustomButton></View>
+                <View style={styles.buttonsContainer}><CustomButton onPress={() => { }} config={config.logoutButton}></CustomButton></View>
+            </ScrollView>
+        </SafeAreaView>
     );
 
 }
@@ -57,28 +47,34 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: 'center',
         justifyContent: "center",
-        marginTop: 55
+        marginTop: 55,
+        marginBottom: 30
     },
     usernametext: {
-        marginBottom:30,
-        fontcolor:'black',
+        marginBottom: 10,
+        fontcolor: '#000000',
         fontSize: 20,
         textAlign: 'center',
         fontWeight: 'bold',
-      },
-      details :{
-        fontSize :20,
-        fontWeight:'bold',
-        textAlign :'left',
-        marginTop:35
-      },
-
-      buttonsContainer: {
+    },
+    detailsContainer: {
+        alignSelf: "flex-start",
+        marginLeft: 35,
+        maxWidth: "90%",
+        paddingHorizontal: 10
+    },
+    details: {
+        fontSize: 16,
+        marginTop: 20
+    },
+    buttonsContainer: {
         alignItems: "center",
-        marginTop: 30,
-        width: "50%"
-      },
-  
+        marginVertical: 20,
+        width: "100%",
+    },
+    editButton: {
+        maxWidth: "50%"
+    },
     logoContainer: {
         marginBottom: 35,
         alignSelf: "center",
@@ -89,29 +85,19 @@ const styles = StyleSheet.create({
         height: 150,
         resizeMode: 'contain'
     },
-    messagebutton: {
-        marginTop:35,
-        alignSelf:'center',
-        width:"120%",
-        backgroundColor:'white',
-        padding: 20,
-        borderRadius: 10
+    friendsButton: {
+        backgroundColor: '#ffffff',
+        shadowColor: "#000000",
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: {
+            width: 0,
+            height: 5
+        }
     },
-    friendbutton: {
-        marginTop:35,
-        alignSelf:'center',
-        width:"200%",
-        backgroundColor:'white',
-        padding: 20,
-        borderRadius: 10
-    },
-
-    buttonText: {
-        alignSelf:'center',
-        color: 'black'
+    friendsButtonText: {
+        color: '#000000',
+        fontWeight: "normal"
     }
-    
-     
-
 })
 export default CurrentUserPage;
