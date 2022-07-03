@@ -7,8 +7,8 @@ const CustomButton = (props) => {
     return (
         <TouchableOpacity
             onPress={props.onPress}
-            style={styles.button}
-        ><Text style={styles.buttonText}>{config.buttonText}</Text>
+            style={[styles.button, ...(props?.styles?.length > 0 ? props?.styles : [])]}
+        ><Text style={[styles.buttonText, ...(props?.buttonTextStyles?.length > 0 ? props?.buttonTextStyles : [])]}>{config.buttonText}</Text>
         </TouchableOpacity>
     );
 }
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: CSS_CONSTANTS.COLOR_PRIMARY_TEXT,
-        fontWeight: "bold",
+        fontWeight: "500",
         fontSize: 15
     }
 });
