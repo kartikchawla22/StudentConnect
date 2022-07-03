@@ -18,6 +18,7 @@ import ForgotPassword from './src/screens/ForgotPassword';
 import CurrentUserPage from './src/screens/currentuserPage';
 import Otheruserpage from './src/screens/OtheruserPage';
 import FriendListPage from './src/screens/friendList'
+import HomeScreen from "./src/screens/homscreen";
 const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
@@ -33,6 +34,7 @@ const App: () => Node = () => {
           <Stack.Screen name="CurrentUser" component={CurrentUserPage} />
           <Stack.Screen name="OtheruserPage" component={Otheruserpage} />
           <Stack.Screen name="FriendList" component={FriendListPage} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
