@@ -1,19 +1,20 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 
 
-const NotificationItem = (props, key) => {
+const NotificationItem = (props) => {
+    const { item } = props;
     return (
-        <View style={styles.container }>
+        <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate("OtheruserPage", { userId: item.user.userId })}>
             <View style={styles.profilePictureContainer}>
                 <Image style={styles.profilePicture} source={require('../Assets/images/profile-pic.png')}></Image>
             </View>
             <View style={styles.container_fields}>
-                <Text style={styles.heading}>User Name</Text>
-                <Text style={styles.text}>Sent you a friend request</Text>
+                <Text style={styles.heading}>{item.user.userName}</Text>
+                <Text style={styles.text}>{item.user.message}</Text>
 
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -49,16 +50,16 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "flex-start",
         marginLeft: 10,
-        margin:10
+        margin: 10
     },
     text: {
-        fontWeight: "regular",
+        fontWeight: "normal",
         alignSelf: "flex-start",
     },
     heading: {
         fontWeight: "bold",
         alignSelf: "flex-start",
-        color:"black"
+        color: "black"
     },
     buttonsContainer: {
         flex: 1,
