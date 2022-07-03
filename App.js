@@ -11,15 +11,14 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-
 import LoginPage from './src/screens/Loginpage';
 import SignupPage from './src/screens/SignupPage';
-import FriendRequestCard from './src/components/friend-request-card'
+import CurrentUserPage from './src/screens/currentuserPage';
+import Otheruserpage from './src/screens/OtheruserPage';
 import FriendListPage from './src/screens/friendList'
 const Stack = createNativeStackNavigator();
+
 const App: () => Node = () => {
-
-
 
   return (
     <SafeAreaProvider>
@@ -27,6 +26,8 @@ const App: () => Node = () => {
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
           <Stack.Screen name="Login" component={LoginPage} />
           <Stack.Screen name="SignUp" component={SignupPage} />
+          <Stack.Screen name="CurrentUser" component={CurrentUserPage} />
+          <Stack.Screen name="OtheruserPage" component={Otheruserpage} />
           <Stack.Screen name="FriendList" component={FriendListPage} />
         </Stack.Navigator>
       </NavigationContainer>
