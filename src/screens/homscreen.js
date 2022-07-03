@@ -7,7 +7,8 @@ import { CONSTANTS } from '../utils/contants';
 import PageHeader from '../components/pageHeader';
 const config = {
     header: {
-        title: "Notifications"
+        title: "Notifications",
+        burgerButton: true
     }
 }
 
@@ -17,12 +18,12 @@ const HomeScreen = ({ navigation, route }) => {
         <SafeAreaView  >
             <View >
                 <View style={styles.header}>
-                    <View style={styles.searchSection}>
+                    {/* <View style={styles.searchSection}>
                         <View>
                             <Image style={styles.menu} source={require('../Assets/images/menu.png')} />
                         </View>
                         <SearchComponent />
-                    </View>
+                    </View> */}
                     <PageHeader navigation={navigation} config={config.header}></PageHeader>
                 </View>
             </View>

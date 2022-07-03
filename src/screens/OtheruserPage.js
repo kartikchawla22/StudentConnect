@@ -32,14 +32,16 @@ const Otheruserpage = ({ navigation, route }) => {
                 </View>
                 <View style={styles.container}>
                     <View style={styles.logoContainer}>
-                        <Image style={styles.logostyle} source={require('../Assets/images/user.png')} />
+                        <Image style={styles.logostyle} source={require('../Assets/images/profile-pic.png')} />
                     </View>
                     <Text style={styles.usernametext}>{userProfile.userName}</Text>
-                    <View style={styles.buttonsContainer}>
-                        <CustomButton styles={[styles.addFriendButton]} onPress={() => { }} config={config.addFriendButton}></CustomButton>
-                        <CustomButton styles={[styles.cancelFriendButton]} buttonTextStyles={[styles.cancelFriendButtonText]} onPress={() => { }} config={config.cancelFriendButton}></CustomButton>
-                    </View>
-                    {/* {!isUserFriend ? <View style={[styles.buttonsContainer, styles.addFriendButton]}><CustomButton onPress={() => { }} config={config.addFriendButton}></CustomButton></View> : null} */}
+
+                    {!isUserFriend ?
+                        <View style={styles.buttonsContainer}>
+                            <CustomButton styles={[styles.addFriendButton]} onPress={() => { }} config={config.addFriendButton}></CustomButton>
+                            <CustomButton styles={[styles.cancelFriendButton]} buttonTextStyles={[styles.cancelFriendButtonText]} onPress={() => { }} config={config.cancelFriendButton}></CustomButton>
+                        </View>
+                        : null}
                     <View style={styles.detailsContainer}>
                         <Text style={styles.details}>Cousre : MDEV </Text>
                         <Text style={styles.details}>Semester : Summer </Text>

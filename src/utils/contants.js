@@ -1,7 +1,7 @@
 export const CONSTANTS = {
     EMAIL: "test@gmail.com",
     PASSWORD: "test",
-    FRIENDS: [9, 7, 5],
+    FRIENDS: [9, 7, 5, 3, 1],
     COUNTRIES: [
         {
             "label": "Afghanistan",
@@ -1631,6 +1631,38 @@ export const CONSTANTS = {
                 email: "testing.georgian@gmail.com",
                 userId: 5,
                 message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test4",
+                email: "testing.georgian@gmail.com",
+                userId: 4,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test3",
+                email: "testing.georgian@gmail.com",
+                userId: 3,
+                message: "Send you a friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test2",
+                email: "testing.georgian@gmail.com",
+                userId: 2,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test1",
+                email: "testing.georgian@gmail.com",
+                userId: 1,
+                message: "Send you a friend request"
             }
         },
     ]
