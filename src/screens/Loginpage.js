@@ -101,7 +101,10 @@ const LoginPage = ({ navigation, route }) => {
                     <Input value={password} config={config.fields.password} onChangeText={onPasswordChange} errorMessage={passwordError}></Input>
                 </View>
                 <View style={styles.buttonsContainer}><CustomButton onPress={checkValidation} config={config.submitButton}></CustomButton></View>
-                <View style={styles.forgotPasswordTextContainer}><Text style={styles.forgotPasswordText}>Forgot Your Password</Text></View>
+                <View style={styles.forgotPasswordTextContainer}><Text  onPress={() => {
+                    Keyboard.dismiss();
+                    navigation.navigate('ForgotPassword')
+                }} style={styles.forgotPasswordText}>Forgot Your Password</Text></View>
                 <View style={styles.forgotPasswordTextContainer}><Text onPress={() => {
                     Keyboard.dismiss();
                     navigation.navigate('SignUp')

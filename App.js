@@ -13,15 +13,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LoginPage from './src/screens/Loginpage';
 import SignupPage from './src/screens/SignupPage';
+import ResetPassword from './src/screens/ResetPassword';
+import ForgotPassword from './src/screens/ForgotPassword';
+
 const Stack = createNativeStackNavigator();
 const App: () => Node = () => {
-
-
 
   return (
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
+          <Stack.Screen name="ResetPassword" component={ResetPassword} />
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="Login" component={LoginPage} />
           <Stack.Screen name="SignUp" component={SignupPage} />
         </Stack.Navigator>
