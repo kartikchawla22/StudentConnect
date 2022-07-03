@@ -1,6 +1,6 @@
 export const CONSTANTS = {
-    EMAIL: "kchawla1995@gmail.com",
-    PASSWORD: "password",
+    EMAIL: "a",
+    PASSWORD: "a",
     COUNTRIES: [
         {
             "label": "Afghanistan",
