@@ -3,22 +3,45 @@ import { View, StyleSheet, Text, Image, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '../components/button';
 import { CSS_CONSTANTS } from '../utils/css-contants';
+import PageHeader from '../components/pageHeader';
+import { CONSTANTS } from '../utils/contants';
 const config = {
     addFriendButton: {
-        buttonText: 'Add As Friend',
+        buttonText: 'Confirm',
         roundedButton: true
+    },
+    cancelFriendButton: {
+        buttonText: 'Cancel',
+        roundedButton: true
+    },
+    header: {
+        title: "",
+        closeButton: true
     }
 }
-const Otheruserpage = () => {
+const Otheruserpage = ({ navigation, route }) => {
+    const { userId } = route.params
+    const userProfile = CONSTANTS.USERS.find((user) => user.id == userId);
+    console.log(userProfile.id, CONSTANTS.FRIENDS, CONSTANTS.FRIENDS.indexOf(userProfile.id) > -1);
+    const isUserFriend = CONSTANTS.FRIENDS.indexOf(userProfile.id) > -1;
     return (
         <SafeAreaView>
             <ScrollView>
+                <View style={styles.header}>
+                    <PageHeader navigation={navigation} config={config.header}></PageHeader>
+                </View>
                 <View style={styles.container}>
                     <View style={styles.logoContainer}>
-                        <Image style={styles.logostyle} source={require('../Assets/images/user.png')} />
+                        <Image style={styles.logostyle} source={require('../Assets/images/profile-pic.png')} />
                     </View>
-                    <Text style={styles.usernametext}>Monica Gamage</Text>
-                    <View style={[styles.buttonsContainer, styles.addFriendButton]}><CustomButton onPress={() => { }} config={config.addFriendButton}></CustomButton></View>
+                    <Text style={styles.usernametext}>{userProfile.userName}</Text>
+
+                    {!isUserFriend ?
+                        <View style={styles.buttonsContainer}>
+                            <CustomButton styles={[styles.addFriendButton]} onPress={() => { }} config={config.addFriendButton}></CustomButton>
+                            <CustomButton styles={[styles.cancelFriendButton]} buttonTextStyles={[styles.cancelFriendButtonText]} onPress={() => { }} config={config.cancelFriendButton}></CustomButton>
+                        </View>
+                        : null}
                     <View style={styles.detailsContainer}>
                         <Text style={styles.details}>Cousre : MDEV </Text>
                         <Text style={styles.details}>Semester : Summer </Text>
@@ -27,7 +50,7 @@ const Otheruserpage = () => {
 
                     <View style={styles.textAreaContainer}>
                         <Text style={styles.aboutHeading}>About</Text>
-                        <Text>Hello am monica . I am second Semester. I love to dance and cooking . I have basic coding knowlegde.
+                        <Text>Hello am {userProfile.userName} . I am second Semester. I love to dance and cooking . I have basic coding knowlegde.
                         </Text>
                     </View>
                 </View>
@@ -43,6 +66,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "center",
         marginTop: 55
+    },
+    header: {
+        width: "100%"
     },
     usernametext: {
         marginBottom: 10,
@@ -63,9 +89,25 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginVertical: 20,
         width: "100%",
+        display: "flex",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: 20
     },
     addFriendButton: {
-        maxWidth: "50%"
+        maxWidth: "45%",
+        marginHorizontal: 10
+    },
+    cancelFriendButton: {
+        maxWidth: "45%",
+        marginHorizontal: 10,
+        backgroundColor: "#ffffff",
+        borderColor: "#000000",
+        borderWidth: 0.2
+    },
+    cancelFriendButtonText: {
+        color: "#000000"
     },
     logoContainer: {
         marginBottom: 35,
