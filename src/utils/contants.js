@@ -1529,7 +1529,8 @@ export const CONSTANTS = {
             "label": "Welding Techniques",
             "value": "WETC"
         }
-    ]
+    ],
+    CODE: 1234
 }
 
 function getValidSemesters() {
