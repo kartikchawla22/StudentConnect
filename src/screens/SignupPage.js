@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: 'center',
         justifyContent: "center",
+        marginBottom: 100
     },
     header: {
         width: "100%"

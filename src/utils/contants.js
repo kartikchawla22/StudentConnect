@@ -1,6 +1,7 @@
 export const CONSTANTS = {
     EMAIL: "test@gmail.com",
     PASSWORD: "test",
+    FRIENDS: [9, 7, 5, 3, 1],
     COUNTRIES: [
         {
             "label": "Afghanistan",
@@ -1530,7 +1531,141 @@ export const CONSTANTS = {
             "value": "WETC"
         }
     ],
-    CODE: 1234
+    CODE: 1234,
+    USERS: [
+        {
+            userName: "test1",
+            email: "testing.georgian@gmail.com",
+            id: 1
+        },
+        {
+            userName: "test2",
+            email: "testing.georgian@gmail.com",
+            id: 2
+        },
+        {
+            userName: "test3",
+            email: "testing.georgian@gmail.com",
+            id: 3
+        },
+        {
+            userName: "test4",
+            email: "testing.georgian@gmail.com",
+            id: 4
+        },
+        {
+            userName: "test5",
+            email: "testing.georgian@gmail.com",
+            id: 5
+        },
+        {
+            userName: "test6",
+            email: "testing.georgian@gmail.com",
+            id: 6
+        },
+        {
+            userName: "test7",
+            email: "testing.georgian@gmail.com",
+            id: 7
+        },
+        {
+            userName: "test8",
+            email: "testing.georgian@gmail.com",
+            id: 8
+        },
+        {
+            userName: "test9",
+            email: "testing.georgian@gmail.com",
+            id: 9
+        },
+        {
+            userName: "test10",
+            email: "testing.georgian@gmail.com",
+            id: 10
+        },
+    ],
+    NOTIFICATIONS: [
+        {
+            user: {
+                userName: "test10",
+                email: "testing.georgian@gmail.com",
+                userId: 10,
+                message: "Send you a friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test9",
+                email: "testing.georgian@gmail.com",
+                userId: 9,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test8",
+                email: "testing.georgian@gmail.com",
+                userId: 8,
+                message: "Send you a friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test7",
+                email: "testing.georgian@gmail.com",
+                userId: 7,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test6",
+                email: "testing.georgian@gmail.com",
+                userId: 6,
+                message: "Send you a friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test5",
+                email: "testing.georgian@gmail.com",
+                userId: 5,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test4",
+                email: "testing.georgian@gmail.com",
+                userId: 4,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test3",
+                email: "testing.georgian@gmail.com",
+                userId: 3,
+                message: "Send you a friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test2",
+                email: "testing.georgian@gmail.com",
+                userId: 2,
+                message: "Accepted your friend request"
+            }
+        },
+        {
+            user: {
+                userName: "test1",
+                email: "testing.georgian@gmail.com",
+                userId: 1,
+                message: "Send you a friend request"
+            }
+        },
+    ]
 }
 
 function getValidSemesters() {

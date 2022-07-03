@@ -1,26 +1,46 @@
 # StudentConnect
 
-Steps to run code
+## Steps to run code
 
-To download all the dependencies run below commands:
+### Installation
 
-yarn install (In case you are using yarn)
+In case you are using yarn
 
-npm install  (In case you are using NPM)
+```sh
+yarn install
+```
+In case you are using NPM
 
-If you face any error while installing dependencies by npm run
+```sh
+npm install
+```
 
- npm install --legacy-peer-deps
+If you face any error while installing dependencies by npm, run
+```sh
+npm install --legacy-peer-deps
+```
+### Install PODS
+```sh
+cd ios && pod install && cd ..
+```
 
+Run below command in the project root folder to start the metro
 
-Step 1. Run below command in the project root folder
- react-native start
- 
- 
-Step 2. 
-Command to run in android 
-react-native run-android
+In case you are using yarn
 
-Command to run in mac
-react-native run-ios
-  
+```sh
+yarn start
+```
+In case you are using NPM
+
+```sh
+npm start
+```
+Command to run in android
+```sh
+npx react-native run-android
+```
+Command to run in iOS
+```sh
+npx react-native run-ios
+  ```
