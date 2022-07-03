@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         alignItems: "center",
-        marginTop: 160,
+        marginTop: 50,
         width: "100%"
     },
     forgotPasswordTextContainer: {

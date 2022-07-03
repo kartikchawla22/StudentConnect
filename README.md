@@ -10,7 +10,7 @@ npm install  (In case you are using NPM)
 
 If you face any error while installing dependencies by npm run
 
- npm install xxxx --legacy-peer-deps
+ npm install --legacy-peer-deps
 
 
 Step 1. Run below command in the project root folder
