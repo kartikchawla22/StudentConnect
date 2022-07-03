@@ -16,6 +16,7 @@ import LoginPage from './src/screens/Loginpage';
 import SignupPage from './src/screens/SignupPage';
 import FriendRequestCard from './src/components/friend-request-card'
 import FriendListPage from './src/screens/friendList'
+import HomeScreen from "./src/screens/homscreen";
 const Stack = createNativeStackNavigator();
 const App: () => Node = () => {
 
@@ -28,6 +29,7 @@ const App: () => Node = () => {
           <Stack.Screen name="Login" component={LoginPage} />
           <Stack.Screen name="SignUp" component={SignupPage} />
           <Stack.Screen name="FriendList" component={FriendListPage} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

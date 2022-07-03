@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
         borderColor: "#E8E8E8",
         alignSelf: "center",
         paddingVertical: 10,
-        shadowRadius: 1,
         shadowColor: "#000000",
         shadowOpacity: 0.2,
         shadowOffset: {

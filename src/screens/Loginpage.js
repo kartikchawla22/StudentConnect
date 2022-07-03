@@ -50,7 +50,7 @@ const LoginPage = ({ navigation, route }) => {
         if (!emailError && !passwordError) {
             if (email === CONSTANTS.EMAIL && password === CONSTANTS.PASSWORD) {
                 Keyboard.dismiss();
-                navigation.navigate('Home');
+                navigation.navigate('HomeScreen');
             } else {
                 setWrongEmailOrPassword(true);
             }
