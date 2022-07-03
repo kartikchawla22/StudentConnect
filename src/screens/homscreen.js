@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, TextInput, Image, FlatList, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
-import { View, StyleSheet, ScrollView, TextInput, Image, FlatList } from 'react-native';
+import {View, StyleSheet, Image, FlatList, Text, TouchableOpacity} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NotificationItem from "../components/notification-item-component";
 import SearchComponent from "../components/SearchComponent";
@@ -91,7 +89,8 @@ const styles = StyleSheet.create({
 
     },
     header: {
-        width: "100%"
+        width: "100%",
+        padding:10
     },
     input: {
         flex: 1,
