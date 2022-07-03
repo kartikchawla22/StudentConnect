@@ -26,7 +26,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="OtheruserPage" screenOptions={{ headerShown: false }} >
+        <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
           <Stack.Screen name="ResetPassword" component={ResetPassword} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="Login" component={LoginPage} />
