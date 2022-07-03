@@ -90,7 +90,7 @@ const LoginPage = ({ navigation, route }) => {
         setWrongEmailOrPassword(false);
     }, [password]);
     return (
-        <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center' }}>
+        <SafeAreaView>
             <View style={styles.logoContainer}>
                 <Image style={styles.logostyle} source={require('../Assets/images/logo.png')} />
             </View>
@@ -102,7 +102,10 @@ const LoginPage = ({ navigation, route }) => {
                         <Input value={password} config={config.fields.password} onChangeText={onPasswordChange} errorMessage={passwordError}></Input>
                     </View>
                     <View style={styles.buttonsContainer}><CustomButton onPress={checkValidation} config={config.submitButton}></CustomButton></View>
-                    <View style={styles.forgotPasswordTextContainer}><Text style={styles.forgotPasswordText}>Forgot Your Password</Text></View>
+                    <View style={styles.forgotPasswordTextContainer}><Text style={styles.forgotPasswordText} onPress={() => {
+                        Keyboard.dismiss();
+                        navigation.navigate('ForgotPassword')
+                    }}>Forgot Your Password?</Text></View>
                     <View style={styles.forgotPasswordTextContainer}><Text onPress={() => {
                         Keyboard.dismiss();
                         navigation.navigate('SignUp')
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         alignItems: "center",
-        marginTop: 160,
+        marginTop: 60,
         width: "100%"
     },
     forgotPasswordTextContainer: {
@@ -133,8 +136,8 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline"
     },
     logoContainer: {
-        marginTop: 20,
-        marginBottom: 100,
+        marginTop: 70,
+        marginBottom: 20,
         alignSelf: "center",
         alignItems: "center"
     },

@@ -54,12 +54,11 @@ const config = {
         }
     },
     header: {
-        title: "Signup Page",
+        title: "Signup",
         closeButton: true
     },
     submitButton: {
-        buttonText: 'Submit',
-        roundedButton: true
+        buttonText: 'Submit'
     }
 }
 let formSubmitted = false;
@@ -159,21 +158,23 @@ const SignupPage = ({ navigation, route }) => {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center' }}>
+        <SafeAreaView>
             <View style={styles.header}>
                 <PageHeader navigation={navigation} config={config.header}></PageHeader>
             </View>
             <ScrollView>
                 <View style={styles.container}>
-                    <Input config={config.fields.email} onChangeText={onEmailChange} errorMessage={emailError}></Input>
-                    <Input config={config.fields.name} onChangeText={onNameChange} errorMessage={nameError}></Input>
-                    <Dropdown onValueChange={onCourseChange} errorMessage={courseError} options={CONSTANTS.COURSES} config={config.fields.course}></Dropdown>
-                    <Dropdown onValueChange={onSemesterChange} errorMessage={semesterError} options={CONSTANTS.SEMESTERS} config={config.fields.semester}></Dropdown>
-                    <Dropdown onValueChange={onHomeCountryChange} errorMessage={homeCountryError} options={CONSTANTS.COUNTRIES} config={config.fields.homeCountry}></Dropdown>
-                    <Input config={config.fields.password} onChangeText={onPasswordChange} errorMessage={passwordError}></Input>
-                    <Input config={config.fields.confirmPassword} onChangeText={onConfirmPasswordChange} errorMessage={confirmPasswordError}></Input>
+                    <View>
+                        <Input config={config.fields.email} onChangeText={onEmailChange} errorMessage={emailError}></Input>
+                        <Input config={config.fields.name} onChangeText={onNameChange} errorMessage={nameError}></Input>
+                        <Dropdown onValueChange={onCourseChange} errorMessage={courseError} options={CONSTANTS.COURSES} config={config.fields.course}></Dropdown>
+                        <Dropdown onValueChange={onSemesterChange} errorMessage={semesterError} options={CONSTANTS.SEMESTERS} config={config.fields.semester}></Dropdown>
+                        <Dropdown onValueChange={onHomeCountryChange} errorMessage={homeCountryError} options={CONSTANTS.COUNTRIES} config={config.fields.homeCountry}></Dropdown>
+                        <Input config={config.fields.password} onChangeText={onPasswordChange} errorMessage={passwordError}></Input>
+                        <Input config={config.fields.confirmPassword} onChangeText={onConfirmPasswordChange} errorMessage={confirmPasswordError}></Input>
+                    </View>
                     <View style={styles.buttonsContainer}><CustomButton onPress={checkValidation} config={config.submitButton}></CustomButton></View>
-                    <View style={styles.forgotPasswordTextContainer}><Text style={styles.forgotPasswordText}>Forgot Your Password</Text></View>
+                    <View style={styles.forgotPasswordTextContainer}><Text style={styles.forgotPasswordText} onPress={() => { navigation.navigate('Login') }} >Already have an account? Sign In</Text></View>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -184,6 +185,7 @@ const styles = StyleSheet.create({
         width: '100%',
         display: "flex",
         alignItems: 'center',
+        justifyContent: "center",
     },
     header: {
         width: "100%"
