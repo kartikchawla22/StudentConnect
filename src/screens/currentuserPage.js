@@ -14,9 +14,7 @@ const config = {
         buttonText: "Friends"
     }
 }
-const CurrentUserPage = () => {
-    const onPress = () => { };
-
+const CurrentUserPage = ({ navigation }) => {
     return (
         <SafeAreaView>
             <ScrollView>
@@ -35,7 +33,14 @@ const CurrentUserPage = () => {
                     </View>
                 </View>
                 <View style={styles.buttonsContainer}><CustomButton buttonTextStyles={[styles.friendsButtonText]} styles={[styles.friendsButton]} onPress={() => { }} config={config.friendsButton}></CustomButton></View>
-                <View style={styles.buttonsContainer}><CustomButton onPress={() => { }} config={config.logoutButton}></CustomButton></View>
+                <View style={styles.buttonsContainer}><CustomButton onPress={() => {
+                    navigation.reset({
+                        index: 0,
+                        routes: [
+                            { name: 'Login' }
+                        ],
+                    })
+                }} config={config.logoutButton}></CustomButton></View>
             </ScrollView>
         </SafeAreaView>
     );
