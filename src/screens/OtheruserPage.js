@@ -22,7 +22,6 @@ const config = {
 const Otheruserpage = ({ navigation, route }) => {
     const { userId } = route.params
     const userProfile = CONSTANTS.USERS.find((user) => user.id == userId);
-    console.log(userProfile.id, CONSTANTS.FRIENDS, CONSTANTS.FRIENDS.indexOf(userProfile.id) > -1);
     const isUserFriend = CONSTANTS.FRIENDS.indexOf(userProfile.id) > -1;
     return (
         <SafeAreaView>

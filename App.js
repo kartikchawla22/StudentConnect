@@ -30,11 +30,6 @@ const App: () => Node = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        {/* <Drawer.Navigator initialRouteName="Home" useLegacyImplementation={true} screenOptions={{ showHeader: false }}>
-          <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen
-            name="FriendList" component={FriendListPage} />
-        </Drawer.Navigator> */}
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} headerMode={"none"} >
           <Stack.Screen name="ResetPassword" component={ResetPassword} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
