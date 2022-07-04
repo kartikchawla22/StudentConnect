@@ -53,7 +53,7 @@ const LoginPage = ({ navigation, route }) => {
                 navigation.reset({
                     index: 0,
                     routes: [
-                        { name: 'HomeScreen' }
+                        { name: 'DrawerNavigationFasade' }
                     ],
                 })
             } else {
